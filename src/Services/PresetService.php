@@ -1,0 +1,182 @@
+<?php
+
+declare(strict_types=1);
+
+namespace MiPrintMaps\Services;
+
+final class PresetService
+{
+    public static function all(): array
+    {
+        return [
+            'categories' => [
+                ['id' => 'parks', 'label' => 'State Parks'],
+                ['id' => 'cities', 'label' => 'Cities & Towns'],
+                ['id' => 'campuses', 'label' => 'Campuses'],
+                ['id' => 'lakes', 'label' => 'Lakes & Rivers'],
+                ['id' => 'trails', 'label' => 'Trails & Routes'],
+            ],
+            'locations' => self::locations(),
+        ];
+    }
+
+    private static function locations(): array
+    {
+        return [
+            [
+                'id' => 'sleeping-bear',
+                'name' => 'Sleeping Bear Dunes',
+                'category' => 'parks',
+                'title' => 'Sleeping Bear Dunes National Lakeshore',
+                'subtitle' => 'Empire, Michigan',
+                'center' => ['lat' => 44.8734, 'lng' => -86.0464],
+                'zoom' => 11,
+                'bounds' => [-86.15, 44.78, -85.92, 44.98],
+                'style' => 'topo',
+            ],
+            [
+                'id' => 'porcupine-mountains',
+                'name' => 'Porcupine Mountains',
+                'category' => 'parks',
+                'title' => 'Porcupine Mountains Wilderness State Park',
+                'subtitle' => 'Ontonagon County, Michigan',
+                'center' => ['lat' => 46.8167, 'lng' => -89.7667],
+                'zoom' => 11,
+                'bounds' => [-89.95, 46.68, -89.55, 46.95],
+                'style' => 'topo',
+            ],
+            [
+                'id' => 'tahquamenon-falls',
+                'name' => 'Tahquamenon Falls',
+                'category' => 'parks',
+                'title' => 'Tahquamenon Falls State Park',
+                'subtitle' => 'Paradise, Michigan',
+                'center' => ['lat' => 46.5750, 'lng' => -85.2350],
+                'zoom' => 12,
+                'bounds' => [-85.32, 46.52, -85.15, 46.63],
+                'style' => 'minimalist',
+            ],
+            [
+                'id' => 'mackinac-island',
+                'name' => 'Mackinac Island',
+                'category' => 'parks',
+                'title' => 'Mackinac Island',
+                'subtitle' => 'Lake Huron, Michigan',
+                'center' => ['lat' => 45.8492, 'lng' => -84.6189],
+                'zoom' => 13,
+                'bounds' => [-84.66, 45.82, -84.58, 45.87],
+                'style' => 'vintage',
+            ],
+            [
+                'id' => 'porcupine-mountains-lake',
+                'name' => 'Lake of the Clouds',
+                'category' => 'lakes',
+                'title' => 'Lake of the Clouds',
+                'subtitle' => 'Porcupine Mountains, MI',
+                'center' => ['lat' => 46.8160, 'lng' => -89.7680],
+                'zoom' => 14,
+                'bounds' => [-89.79, 46.805, -89.745, 46.828],
+                'style' => 'topo',
+            ],
+            [
+                'id' => 'detroit',
+                'name' => 'Detroit',
+                'category' => 'cities',
+                'title' => 'Detroit',
+                'subtitle' => 'Motor City, Michigan',
+                'center' => ['lat' => 42.3314, 'lng' => -83.0458],
+                'zoom' => 11,
+                'bounds' => [-83.28, 42.26, -82.91, 42.45],
+                'style' => 'dark',
+            ],
+            [
+                'id' => 'ann-arbor',
+                'name' => 'Ann Arbor',
+                'category' => 'cities',
+                'title' => 'Ann Arbor',
+                'subtitle' => 'Washtenaw County, Michigan',
+                'center' => ['lat' => 42.2808, 'lng' => -83.7430],
+                'zoom' => 12,
+                'bounds' => [-83.82, 42.23, -83.67, 42.33],
+                'style' => 'minimalist',
+            ],
+            [
+                'id' => 'traverse-city',
+                'name' => 'Traverse City',
+                'category' => 'cities',
+                'title' => 'Traverse City',
+                'subtitle' => 'Cherry Capital of the World',
+                'center' => ['lat' => 44.7631, 'lng' => -85.6206],
+                'zoom' => 12,
+                'bounds' => [-85.72, 44.70, -85.52, 44.82],
+                'style' => 'vintage',
+            ],
+            [
+                'id' => 'um-central-campus',
+                'name' => 'U-M Central Campus',
+                'category' => 'campuses',
+                'title' => 'University of Michigan',
+                'subtitle' => 'Central Campus, Ann Arbor',
+                'center' => ['lat' => 42.2780, 'lng' => -83.7382],
+                'zoom' => 15,
+                'bounds' => [-83.748, 42.272, -83.728, 42.284],
+                'style' => 'blueprint',
+            ],
+            [
+                'id' => 'gvsu-allendale',
+                'name' => 'GVSU Allendale Campus',
+                'category' => 'campuses',
+                'title' => 'Grand Valley State University',
+                'subtitle' => 'Allendale, Michigan',
+                'center' => ['lat' => 42.9634, 'lng' => -85.8892],
+                'zoom' => 14,
+                'bounds' => [-85.905, 42.952, -85.872, 42.975],
+                'style' => 'minimalist',
+            ],
+            [
+                'id' => 'msu-campus',
+                'name' => 'MSU Campus',
+                'category' => 'campuses',
+                'title' => 'Michigan State University',
+                'subtitle' => 'East Lansing, Michigan',
+                'center' => ['lat' => 42.7016, 'lng' => -84.4822],
+                'zoom' => 14,
+                'bounds' => [-84.50, 42.69, -84.46, 42.72],
+                'style' => 'blueprint',
+            ],
+            [
+                'id' => 'great-lakes-michigan',
+                'name' => 'Lake Michigan Shoreline',
+                'category' => 'lakes',
+                'title' => 'Lake Michigan',
+                'subtitle' => 'West Michigan Coast',
+                'center' => ['lat' => 43.0, 'lng' => -86.5],
+                'zoom' => 8,
+                'bounds' => [-87.2, 41.7, -85.5, 45.8],
+                'style' => 'minimalist',
+            ],
+            [
+                'id' => 'upper-peninsula',
+                'name' => 'Upper Peninsula',
+                'category' => 'trails',
+                'title' => 'Upper Peninsula of Michigan',
+                'subtitle' => 'Pure Michigan',
+                'center' => ['lat' => 46.5, 'lng' => -87.4],
+                'zoom' => 7,
+                'bounds' => [-91.3, 45.65, -82.8, 48.45],
+                'style' => 'topo',
+            ],
+            [
+                'id' => 'michigan-state',
+                'name' => 'Michigan (Statewide)',
+                'category' => 'trails',
+                'title' => 'Michigan',
+                'subtitle' => 'Great Lakes State',
+                'center' => ['lat' => 44.3148, 'lng' => -86.55],
+                'zoom' => 5.8,
+                'bounds' => [-91.3, 41.55, -81.85, 48.45],
+                'style' => 'minimalist',
+            ],
+        ];
+    }
+}

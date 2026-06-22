@@ -1,0 +1,24 @@
+services:
+  tileserver:
+    image: maptiler/tileserver-gl:v4.13.0
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./data/tiles:/data
+    command: --config /data/config.json
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      # Browser must reach tiles on the host (not the docker service name).
+      TILE_URL: ${TILE_URL:-http://localhost:8090/data/michigan/{z}/{x}/{y}.pbf}
+      GLYPHS_URL: ${GLYPHS_URL:-https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf}
+    depends_on:
+      - tileserver

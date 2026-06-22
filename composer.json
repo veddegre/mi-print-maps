@@ -1,0 +1,16 @@
+{
+    "name": "mi-print-maps/studio",
+    "description": "Self-hosted printable map poster studio for Michigan places",
+    "type": "project",
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MiPrintMaps\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

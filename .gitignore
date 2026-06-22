@@ -1,0 +1,9 @@
+/vendor/
+/node_modules/
+.env
+storage/exports/*
+!storage/exports/.gitkeep
+data/tiles/*.mbtiles
+data/tiles/*.osm.pbf
+.DS_Store
+composer.lock
