@@ -7,7 +7,7 @@ PBF="$TILES_DIR/michigan-latest.osm.pbf"
 MBTILES="$TILES_DIR/michigan.mbtiles"
 GEOFABRIK_URL="https://download.geofabrik.de/north-america/us/michigan-latest.osm.pbf"
 
-mkdir -p "$TILES_DIR"
+mkdir -p "$TILES_DIR/sources" "$TILES_DIR/tmp"
 
 if [[ -f "$MBTILES" ]]; then
   echo "Michigan tiles already exist: $MBTILES"
@@ -27,6 +27,9 @@ docker run --rm \
   -e JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS:--Xmx6g}" \
   -v "$TILES_DIR:/data" \
   ghcr.io/onthegomap/planetiler:latest \
+  --download \
+  --download-dir=/data/sources \
+  --tmpdir=/data/tmp \
   --osm-path=/data/michigan-latest.osm.pbf \
   --output=/data/michigan.mbtiles \
   --force
